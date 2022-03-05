@@ -1,0 +1,31 @@
+{
+  "name": "ranbot-carter",
+  "version": "0.0.1",
+  "description": "This is a Discord Bot made for friends, with the purpose of bringing you back a humorous modified version of your current avatar.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucioFex/RanBot-Carter.git"
+  },
+  "keywords": [
+    "Bot",
+    "Discord",
+    "Images",
+    "Fun"
+  ],
+  "author": "LucioFex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LucioFex/RanBot-Carter/issues"
+  },
+  "homepage": "https://github.com/LucioFex/RanBot-Carter#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.10.0"
+  }
+}
