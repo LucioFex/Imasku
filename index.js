@@ -1,6 +1,7 @@
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 require('dotenv').config();
 
+// const prefix = '+';
 const client = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
@@ -8,8 +9,7 @@ const client = new Client({
     ],
 });
 
-// client.on('messageCreate', (message) => {
-//     console.log('Received message:', message.attachments);
-// });
+client.commands = new Collection();
+require('./handlers/commandHandler')(client);
 
 client.login(process.env.token); // Turn on the bot

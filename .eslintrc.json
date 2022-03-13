@@ -17,6 +17,8 @@
         "no-continue": "off",
         "radix": "off",
         "no-constant-condition": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "import/no-dynamic-require": "off",
+        "global-require": "off"
     }
 }

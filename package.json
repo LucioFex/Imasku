@@ -1,6 +1,6 @@
 {
   "name": "ranbot-carter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a Discord Bot made for friends, with the purpose of bringing you back a humorous modified version of your current avatar.",
   "main": "index.js",
   "scripts": {
