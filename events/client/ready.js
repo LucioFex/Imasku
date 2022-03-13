@@ -1,0 +1,3 @@
+module.exports = () => {
+    // Prepare the module later...
+};

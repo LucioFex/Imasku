@@ -10,6 +10,8 @@ const client = new Client({
 });
 
 client.commands = new Collection();
+client.events = new Collection();
 require('./handlers/commandHandler')(client);
+require('./handlers/eventHandler')(client);
 
 client.login(process.env.token); // Turn on the bot
