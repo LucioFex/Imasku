@@ -1,7 +1,6 @@
 const { Client, Intents, Collection } = require('discord.js');
 require('dotenv').config();
 
-// const prefix = '+';
 const client = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
@@ -9,6 +8,7 @@ const client = new Client({
     ],
 });
 
+// Preparation for events and commands setting/getting:
 client.commands = new Collection();
 client.events = new Collection();
 require('./handlers/commandHandler')(client);
