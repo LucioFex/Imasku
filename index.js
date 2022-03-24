@@ -8,7 +8,7 @@ const client = new Client({
     ],
 });
 
-// Preparation for events and commands setting/getting:
+// Preparation for events and commands getting:
 client.commands = new Collection();
 client.events = new Collection();
 require('./handlers/commandHandler')(client);

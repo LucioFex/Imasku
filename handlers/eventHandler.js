@@ -1,9 +1,9 @@
-const fs = require('fs');
+const fs = require('fs/promises');
 
-module.exports = (client) => { // Make Async later...
-    const loadDirectory = (directories) => {
-        const eventFiles = fs.readdirSync(`./events/${directories}`)
-            .filter((file) => file.endsWith('.js'));
+module.exports = (client) => {
+    const loadDirectory = async (directories) => {
+        let eventFiles = await fs.readdir(`./events/${directories}`);
+        eventFiles = eventFiles.filter((file) => file.endsWith('.js'));
 
         for (let index = 0; index < eventFiles.length; index += 1) {
             const event = require(`../events/${directories}/${eventFiles[index]}`);
