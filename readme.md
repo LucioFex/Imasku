@@ -1,11 +1,11 @@
 <h1 align="center">
-  🕯 RanBot Carter 🕯
+  🕯 Imasku 🕯
 </h1>
 
 <h1 align="center">🎩 Add filters to your images in just seconds 💀</h1>
 
 <h4>
-  This is a Discord Bot with the ability to process your images.
+  Imasku is a Discord Bot with the ability to process your images.
   You can paste an image on a Discord server, select one or more filters, and then send the message.
   The Bot will return the processed image.
 </h4>
