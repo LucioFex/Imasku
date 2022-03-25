@@ -1,16 +1,16 @@
 <h1 align="center">
-  🕯 Imasku 🕯
+ Imasku
 </h1>
 
 <h1 align="center">🎩 Add filters to your images in just seconds 💀</h1>
+
+<p align="center"><img src="public/src/imasku-logo.png" alt="RanBot-Carter sample img" width="500"/></p>
 
 <h4>
   Imasku is a Discord Bot with the ability to process your images.
   You can paste an image on a Discord server, select one or more filters, and then send the message.
   The Bot will return the processed image.
 </h4>
-
-<img src="public/src/imasku-logo.png" alt="RanBot-Carter sample img" width="500"/>
 
 ## Technologies used in the project:
 - JavaScript (Node)
@@ -34,8 +34,10 @@
 So if you have an idea on how to improve this repository, I will appreciate
 the opening of an issue to check the change you want to make.
 
-<!-- ## Credits -->
-
+## Credits
+- Wand icon: [Freepik (Flaticon)](https://www.flaticon.com/free-icon/enhance_7078037?term=effect&page=1&position=79&page=1&position=79&related_id=7078037&origin=search).
+- Skull icon: [Freepik (Flaticon)](https://www.flaticon.com/free-icon/skull_983061).
+- Tea Cup icon: [Smashicons (Flaticon)](https://www.flaticon.com/free-icon/tea-cup_1601057).
 
 ## Project Status:
 
