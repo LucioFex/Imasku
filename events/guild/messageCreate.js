@@ -1,5 +1,5 @@
 module.exports = (client, message) => {
-    const prefix = '+';
+    const { prefix } = process.env;
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
