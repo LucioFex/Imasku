@@ -4,7 +4,6 @@ module.exports = (client, message) => {
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
-    // console.log('cmd', cmd);
 
     const command = client.commands.get(cmd);
     if (command) command.execute(client, message, args);

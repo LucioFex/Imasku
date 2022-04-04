@@ -1,6 +1,6 @@
 {
   "name": "imasku",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "This is a Discord Bot made for friends, with the purpose of bringing you back a humorous modified version of your current avatar.",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,8 @@
   "dependencies": {
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
-    "got": "^12.0.1"
+    "got": "^12.0.1",
+    "sharp": "^0.30.3"
   },
   "devDependencies": {
     "eslint": "^8.11.0",
