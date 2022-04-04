@@ -37,11 +37,12 @@ the opening of an issue to check the change you want to make.
 ## Credits
 - Wand icon: [Freepik (Flaticon)](https://www.flaticon.com/free-icon/enhance_7078037?term=effect&page=1&position=79&page=1&position=79&related_id=7078037&origin=search).
 - Skull icon: [Freepik (Flaticon)](https://www.flaticon.com/free-icon/skull_983061).
+- Info icon: [Freepik (Flaticon)](https://www.flaticon.com/free-icon/info_390979?related_id=391181&origin=search).
 - Tea Cup icon: [Smashicons (Flaticon)](https://www.flaticon.com/free-icon/tea-cup_1601057).
 
 ## Project Status:
 
-### `Version: 0.2.1`
+### `Version: 0.2.2`
 
 ## License
 #### MIT © [Luciano Esteban](https://github.com/LucioFex)
