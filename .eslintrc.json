@@ -19,6 +19,7 @@
         "no-constant-condition": "off",
         "no-param-reassign": "off",
         "import/no-dynamic-require": "off",
-        "global-require": "off"
+        "global-require": "off",
+        "import/no-unresolved": "off"
     }
 }

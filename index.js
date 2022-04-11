@@ -1,6 +1,6 @@
-const { Client, Intents, Collection } = require('discord.js');
+const got = import('got');
 const sharp = require('sharp');
-// const got = require('got'); // Need fix later..
+const { Client, Intents, Collection } = require('discord.js');
 
 require('dotenv').config();
 
