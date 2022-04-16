@@ -12,7 +12,7 @@ module.exports = {
                 'All commands expect you to send an image, these usually start'
                 + 'with the name of the filter and the parameter.\n\n'
                 + 'If you see a command like this: `tint | color`, '
-                + 'then you should type something like `tint blue`.',
+                + 'then you should type something like `+tint blue`.',
             )
             .addField(
                 '🖍  Color Manipulation',
@@ -48,7 +48,7 @@ module.exports = {
                 + '\n> `resize | pixels pixels`: Resize the width and height of the image',
             );
 
-        message.channel.send(
+        message.channel.send( // Preparation of local images to use
             { embeds: [helpAnswer], files: ['./public/src/info.png'] },
         );
     },
