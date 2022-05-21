@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 
-module.exports = async (client, sharp, got) => { // Make Async later...
+module.exports = async (client) => { // Make Async later...
     /* Exported module function to create commands through files. */
 
     // Search of every file in the 'commands' folder that has the '.js' filetype
@@ -11,6 +11,6 @@ module.exports = async (client, sharp, got) => { // Make Async later...
     for (let index = 0; index < commandFiles.length; index += 1) {
         // commandFiles[index] is an specific file
         const command = require(`../commands/${commandFiles[index]}`);
-        if (command.name) client.commands.set(command.name, command, sharp, got);
+        if (command.name) client.commands.set(command.name, command);
     }
 };

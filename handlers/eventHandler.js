@@ -2,7 +2,6 @@ const fs = require('fs/promises');
 
 module.exports = (client) => { // Make async later...
     /* Exported module function to create events through files. */
-
     // Function to search every dir in the 'events' folder to process every file
     const loadDirectory = async (directories) => {
         let eventFiles = await fs.readdir(`./events/${directories}`);
