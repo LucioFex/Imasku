@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'grayscale',
-    description: 'Turns the image gray',
+    name: 'negate',
+    description: 'Negative image colors',
     async execute(client, message, args) {
         // Save of the image inside an array to add only one image by 'filter'
         const rawImages = []; // Images submited by the user
@@ -22,8 +22,8 @@ module.exports = {
         const sharpStream = sharp();
         got.stream(imageUrl).pipe(sharpStream);
 
-        // Applying grayscale effect, and saving it
-        sharpStream.grayscale();
+        // Applying negative colors effect, and saving it
+        sharpStream.negate({ alpha: false });
         await sharpStream.toFile(`${__dirname}/src/processed.png`);
 
         // Bot sending the image to the chat
