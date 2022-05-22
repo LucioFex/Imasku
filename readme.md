@@ -4,7 +4,7 @@
 
 <h1 align="center">🎩 Add filters to your images in just seconds 💀</h1>
 
-<p align="center"><img src="public/src/imasku-logo.png" alt="RanBot-Carter sample img" width="500"/></p>
+<p align="center"><img src="public/src/imasku-logo.png" alt="RanBot-Carter sample img" width="400"/></p>
 
 <h4>
   Imasku is a Discord Bot with the ability to process your images.
