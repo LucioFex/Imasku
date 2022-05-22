@@ -26,7 +26,7 @@ module.exports = {
                 '> `flip`: Horizontal rotation'
                 + '\n> `flop`: Vertical rotation'
                 + '\n> `threshold`: Convert the image to black and white pixels only'
-                + '\n> `rotate degrees`: Rotates an image'
+                + '\n> `rotate | degrees`: Rotates an image'
                 + '\n> `blur | level`: Apply blur filter'
                 + '\n> `gamma | level`: Modify image gamma (light and dark)'
                 + '\n> `sharpen | level`: Sharps the image'
@@ -46,6 +46,13 @@ module.exports = {
                 '> `width | pixels`: Resize only the width of the image'
                 + '\n> `height | pixels`: Resize only the height of the image'
                 + '\n> `resize | pixels pixels`: Resize the width and height of the image',
+            )
+            .addField(
+                '🔨  Tools',
+                '> `colors`: Shows all available colors to apply to images.'
+                + '\n> `levels`: Shows all available levels to apply to images.'
+                + '\n> `degrees`: Shows all available degrees to apply to images.'
+                + '\n> `pixels`: Shows how to add a size to apply to images.',
             );
 
         message.channel.send( // Preparation of local images to use
