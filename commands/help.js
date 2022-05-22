@@ -23,8 +23,8 @@ module.exports = {
             )
             .addField(
                 '📷  Image Operations',
-                '> `flip`: Horizontal rotation'
-                + '\n> `flop`: Vertical rotation'
+                '> `flip`: Vertical rotation'
+                + '\n> `flop`: Horizontal rotation'
                 + '\n> `threshold`: Convert the image to black and white pixels only'
                 + '\n> `rotate | degrees`: Rotates an image'
                 + '\n> `blur | level`: Apply blur filter'
@@ -51,7 +51,6 @@ module.exports = {
                 '🔨  Tools',
                 '> `colors`: Shows all available colors to apply to images.'
                 + '\n> `levels`: Shows all available levels to apply to images.'
-                + '\n> `degrees`: Shows all available degrees to apply to images.'
                 + '\n> `pixels`: Shows how to add a size to apply to images.',
             );
 
