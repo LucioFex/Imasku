@@ -17,13 +17,14 @@ module.exports = {
         const gotModule = await import('got');
         const got = gotModule.default;
 
-        // Image processing and save of the new image as "processed"
+        // Getting image via url
         const imageUrl = rawImages[0];
         const sharpStream = sharp();
         got.stream(imageUrl).pipe(sharpStream);
 
+        // Applying effects, and saving it
         sharpStream.grayscale();
-        sharpStream.toFile(`${__dirname}/src/processed.png`);
+        await sharpStream.toFile(`${__dirname}/src/processed.png`);
 
         // Bot sending the image to the chat
         return message.channel.send({ files: [`${__dirname}/src/processed.png`] });
