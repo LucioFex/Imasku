@@ -42,7 +42,7 @@ the opening of an issue to check the change you want to make.
 
 ## Project Status:
 
-### `Version: 0.3.4`
+### `Version: 0.4.0`
 
 ## License
 #### MIT © [Luciano Esteban](https://github.com/LucioFex)

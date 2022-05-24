@@ -28,9 +28,13 @@ module.exports = {
             [0.2990, 0.5870, 0.1140],
             [0.2392, 0.4696, 0.0912],
         ]);
-        await sharpStream.toFile(`${__dirname}/src/processed.png`);
+
+        const { randomToken, removeProcessedImage } = require('../helpers/commonFunctions');
+        const imageDir = `${__dirname}/src/${randomToken()}.png`;
+        await sharpStream.toFile(imageDir);
 
         // Bot sending the image to the chat
-        return message.channel.send({ files: [`${__dirname}/src/processed.png`] });
+        await message.channel.send({ files: [imageDir] });
+        removeProcessedImage(imageDir);
     },
 };

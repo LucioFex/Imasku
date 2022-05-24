@@ -24,9 +24,13 @@ module.exports = {
 
         // Applying flip effect, and saving it
         sharpStream.flip();
-        await sharpStream.toFile(`${__dirname}/src/processed.png`);
+
+        const { randomToken, removeProcessedImage } = require('../helpers/commonFunctions');
+        const imageDir = `${__dirname}/src/${randomToken()}.png`;
+        await sharpStream.toFile(imageDir);
 
         // Bot sending the image to the chat
-        return message.channel.send({ files: [`${__dirname}/src/processed.png`] });
+        await message.channel.send({ files: [imageDir] });
+        removeProcessedImage(imageDir);
     },
 };

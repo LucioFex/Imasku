@@ -30,9 +30,13 @@ module.exports = {
         } catch { // If the inserted degrees are not numeric
             return message.channel.send('You need to add a number of degrees to apply to the image');
         }
-        await sharpStream.toFile(`${__dirname}/src/processed.png`);
+
+        const { randomToken, removeProcessedImage } = require('../helpers/commonFunctions');
+        const imageDir = `${__dirname}/src/${randomToken()}.png`;
+        await sharpStream.toFile(imageDir);
 
         // Bot sending the image to the chat
-        return message.channel.send({ files: [`${__dirname}/src/processed.png`] });
+        await message.channel.send({ files: [imageDir] });
+        removeProcessedImage(imageDir);
     },
 };

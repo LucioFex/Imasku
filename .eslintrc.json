@@ -20,6 +20,7 @@
         "no-param-reassign": "off",
         "import/no-dynamic-require": "off",
         "global-require": "off",
-        "import/no-unresolved": "off"
+        "import/no-unresolved": "off",
+        "consistent-return": "off"
     }
 }
