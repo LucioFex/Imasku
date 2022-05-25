@@ -1,6 +1,6 @@
-module.exports = {
-    name: 'grayscale',
-    description: 'Turns the image gray',
+exports = {
+    name: 'gamma',
+    description: 'Modify image gamma (light and dark)',
     async execute(client, message, args) {
         // Save of the image inside an array to add only one image by 'filter'
         const rawImages = []; // Images submited by the user
@@ -9,6 +9,8 @@ module.exports = {
         // In case the user didn't submit an image
         if (rawImages.length === 0) {
             return message.channel.send('You need to send an image to modify');
+        } if (!['low', 'mid', 'high'].includes(args[0])) {
+            return message.channel.send('You need to add a level to apply (\'low\', \'mid\' or \'high\')');
         }
 
         // Import of packages to process the image
@@ -22,8 +24,11 @@ module.exports = {
         const sharpStream = sharp();
         got.stream(imageUrl).pipe(sharpStream);
 
-        // Applying grayscale effect, and saving it
-        sharpStream.grayscale();
+        // Applying effect, and saving it
+        const levels = { low: 2, mid: 2.5, high: 3 };
+        for (let index = 0; index < 10; index += 1) {
+            sharpStream.gamma(levels[args[0]]);
+        }
 
         const { randomToken, removeProcessedImage } = require('../helpers/commonFunctions');
         const imageDir = `${__dirname}/src/${randomToken()}.png`;

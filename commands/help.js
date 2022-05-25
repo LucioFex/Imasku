@@ -50,7 +50,6 @@ module.exports = {
             .addField(
                 '🔨  Tools',
                 '> `colors`: Shows all available colors to apply to images.'
-                + '\n> `levels`: Shows all available levels to apply to images.'
                 + '\n> `pixels`: Shows how to add a size to apply to images.',
             );
 
