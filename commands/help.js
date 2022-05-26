@@ -34,7 +34,7 @@ module.exports = {
             )
             .addField(
                 '🔲  Image Compositions',
-                '> `hue | level`: Change the hue of the image'
+                '> `hue | degrees`: Change the hue of the image'
                 + '\n> `flatten | color`: Add color to an empty PNG image background'
                 + '\n> `composite | image`: Add image to an empty PNG background'
                 + '\n> `lightness | level`: Change the lightness of the image'
