@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'gamma',
-    description: 'Modify image gamma (light and dark)',
+    name: 'saturation',
+    description: 'Change the saturation of the image',
     async execute(client, message, args) {
         // Save of the image inside an array to add only one image by 'filter'
         const rawImages = []; // Images submited by the user
@@ -25,8 +25,8 @@ module.exports = {
         got.stream(imageUrl).pipe(sharpStream);
 
         // Applying effect, and saving it
-        const levels = { low: 1, mid: 2.9, high: 3 };
-        sharpStream.gamma(levels[args[0]]);
+        const levels = { low: 0.5, mid: 2, high: 4 };
+        sharpStream.modulate({ saturation: levels[args[0]] });
 
         const { randomToken, removeProcessedImage } = require('../helpers/commonFunctions');
         const imageDir = `${__dirname}/src/${randomToken()}.png`;
