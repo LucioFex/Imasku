@@ -1,6 +1,6 @@
 {
   "name": "imasku",
-  "version": "0.4.5",
+  "version": "0.5.3",
   "description": "This is a Discord Bot made for friends, with the purpose of bringing you back a humorous modified version of your current avatar.",
   "main": "index.js",
   "scripts": {
