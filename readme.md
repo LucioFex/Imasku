@@ -16,6 +16,7 @@
 - JavaScript (Node)
     - [Discord.js](https://discord.js.org/#/)
     - [Sharp](https://sharp.pixelplumbing.com/)
+    - [Got](https://github.com/sindresorhus/got#readme)
 
 ## Coding Style Guide:
 - Airbnb JavaScript style
