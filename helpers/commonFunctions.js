@@ -4,9 +4,9 @@ const fs = require('fs');
 const randomToken = () => Math.random().toString(36).substring(2);
 
 // It Removes the 'processedTOKEN.png' file from the 'commands/src' folder
-const removeProcessedImage = (dir1, dir2) => {
+const removeProcessedImage = (dir1, dir2 = false) => {
     fs.unlinkSync(dir1);
-    fs.unlinkSync(dir2);
+    if (dir2) fs.unlinkSync(dir2);
 };
 
 module.exports = {
