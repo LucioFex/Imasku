@@ -9,5 +9,11 @@ module.exports = (client, message) => {
 
     // The 'execute' function is to activate command (depending on the file)
     const command = client.commands.get(cmd);
-    if (command) command.execute(client, message, args);
+    if (command) {
+        try {
+            command.execute(client, message, args);
+        } catch (err) {
+            message.channel.send('I had a problem trying to edit the image 💀...');
+        }
+    }
 };

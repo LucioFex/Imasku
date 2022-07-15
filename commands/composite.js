@@ -20,7 +20,7 @@ module.exports = {
         } = require('../helpers/commonFunctions');
 
         const token = randomToken();
-        const strmDir = `${__dirname}/src/strm-${token}.png`;
+        const strmDir = `${__dirname}/src/strm${token}.png`;
 
         // Import of packages to process the image
         const sharp = require('sharp');
@@ -42,15 +42,14 @@ module.exports = {
         composited.toFile(strmDir); // strm = stream
 
         // Applying effect, and saving it
-        sharp(await sharpStream.toBuffer())
+        const imageDir = `${__dirname}/src/${token}.png`;
+        await sharp(await sharpStream.toBuffer())
             .composite([{
-                input: strmDir, // (?) Keep checking this later...
+                input: strmDir,
                 gravity: 'north',
                 blend: 'dest-over',
-            }]);
-
-        const imageDir = `${__dirname}/src/${token}.png`;
-        await sharpStream.toFile(imageDir);
+            }])
+            .toFile(imageDir);
 
         // Bot sending the image to the chat
         await message.channel.send({ files: [imageDir] });
