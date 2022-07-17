@@ -43,8 +43,8 @@ module.exports = {
             )
             .addField(
                 '🔎  Image Resizing',
-                '> `width | pixels`: Resize only the width of the image'
-                + '\n> `height | pixels`: Resize only the height of the image'
+                '> `width | pixels mode`: Resize only the width of the image'
+                + '\n> `height | pixels mode`: Resize only the height of the image'
                 + '\n> `resize | pixels pixels mode`: Resize the width and height of the image',
             )
             .addField(
