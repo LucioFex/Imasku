@@ -49,8 +49,8 @@ module.exports = {
             )
             .addField(
                 '🔨  Tools',
-                '> `colors`: Shows all available colors to apply to images.'
-                + '\n> `resizing`: Shows how to manipulate image sizes.',
+                '> `colors`: Shows all available colors to apply to images'
+                + '\n> `resizing`: Shows how to manipulate image sizes',
             );
 
         message.channel.send( // Preparation of local images to use
