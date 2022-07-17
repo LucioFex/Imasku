@@ -45,12 +45,12 @@ module.exports = {
                 '🔎  Image Resizing',
                 '> `width | pixels`: Resize only the width of the image'
                 + '\n> `height | pixels`: Resize only the height of the image'
-                + '\n> `resize | pixels pixels`: Resize the width and height of the image',
+                + '\n> `resize | pixels pixels mode`: Resize the width and height of the image',
             )
             .addField(
                 '🔨  Tools',
                 '> `colors`: Shows all available colors to apply to images.'
-                + '\n> `pixels`: Shows how to add a size to apply to images.',
+                + '\n> `resizing`: Shows how to manipulate image sizes.',
             );
 
         message.channel.send( // Preparation of local images to use
