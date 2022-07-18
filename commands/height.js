@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'width',
-    description: 'Resize only the width of the image',
+    name: 'height',
+    description: 'Resize only the height of the image',
     async execute(client, message, args) {
         // Save of the image inside an array to add only one image by 'filter'
         const rawImages = []; // Images submited by the user
@@ -10,10 +10,10 @@ module.exports = {
         if (rawImages.length === 0) {
             return message.channel.send('You need to send an image to modify');
         }
-        try { // Validation of the args (width)
+        try { // Validation of the args (height)
             parseInt(args[0]);
         } catch { // If the inserted degrees are not numeric
-            return message.channel.send('You need to indicate the new `width` of the image');
+            return message.channel.send('You need to indicate the new `height` of the image');
         }
 
         // Import of packages to process the image
@@ -33,8 +33,8 @@ module.exports = {
             mode = 'fill'; // Default fit
         }
 
-        // Selected width (args[0]), default height (null)
-        sharpStream.resize(parseInt(args[0]), null, { fit: mode });
+        // Default width (null), selected height (args[0])
+        sharpStream.resize(null, parseInt(args[0]), { fit: mode });
 
         const { randomToken, removeProcessedImage } = require('../helpers/commonFunctions');
         const imageDir = `${__dirname}/src/${randomToken()}.png`;
