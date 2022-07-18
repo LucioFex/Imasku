@@ -10,11 +10,10 @@ module.exports = {
         if (rawImages.length === 0) {
             return message.channel.send('You need to send an image to modify');
         }
-        try { // Validation of the args (width)
-            parseInt(args[0]);
-        } catch { // If the inserted degrees are not numeric
-            return message.channel.send('You need to indicate the new `width` of the image');
-        }
+        // Check if user submitted a wrong resolution
+        const { validateResolution } = require('../helpers/commonFunctions');
+        const validation = validateResolution(args[0]);
+        if (validation !== 'correct') return message.channel.send(validation);
 
         // Import of packages to process the image
         const sharp = require('sharp');
