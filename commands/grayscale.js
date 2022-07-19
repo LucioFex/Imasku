@@ -2,11 +2,16 @@ module.exports = {
     name: 'grayscale',
     description: 'Turns the image gray',
     async execute(client, message, args) {
-        // Save of the image inside an array to add only one image by 'filter'
-        const rawImages = []; // Images submited by the user
+        /* Save of the image inside an array to add only one image by 'filter' */
+        // Mentions or Images submited by the user
+        const rawImages = [];
+        const mention = message.mentions.users.first();
         message.attachments.find((file) => rawImages.push(file.url));
 
-        // In case the user didn't submit an image
+        // If the user mentioned someone, that person's avatar will be edited
+        if (mention !== undefined) rawImages.push(mention.avatarURL(), 'avatar');
+
+        // In case the user has not sent an image or an avatar
         if (rawImages.length === 0) {
             return message.channel.send('You need to send an image to modify');
         }
@@ -22,6 +27,9 @@ module.exports = {
         const sharpStream = sharp();
         got.stream(imageUrl).pipe(sharpStream);
 
+        // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
+        if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
+
         // Applying grayscale effect, and saving it
         sharpStream.grayscale();
 
@@ -30,7 +38,7 @@ module.exports = {
         await sharpStream.toFile(imageDir);
 
         // Bot sending the image to the chat
-        await message.channel.send({ files: [imageDir] });
+        await message.reply({ files: [imageDir] });
         removeProcessedImage(imageDir);
     },
 };
