@@ -9,10 +9,10 @@ module.exports = {
             .setThumbnail('attachment://info.png')
             .setColor('#ffd059')
             .setDescription(
-                'All commands expect you to send an image, these usually start'
+                'All the commands expect you to send an image or mention someone, these usually start '
                 + 'with the name of the filter and the parameter.\n\n'
                 + 'If you see a command like this: `tint | color`, '
-                + 'then you should type something like `+tint blue`.',
+                + 'then you should type something like `+tint blue` with an image, or `+tint blue @mention`',
             )
             .addField(
                 '🖍  Color Manipulation',

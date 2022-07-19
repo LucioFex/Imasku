@@ -38,7 +38,7 @@ module.exports = {
         await sharpStream.toFile(imageDir);
 
         // Bot sending the image to the chat
-        await message.reply({ files: [imageDir] });
+        await message.channel.send({ files: [imageDir] });
         removeProcessedImage(imageDir);
     },
 };
