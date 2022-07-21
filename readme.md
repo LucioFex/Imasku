@@ -12,6 +12,8 @@
   The Bot will return the processed image.
 </h4>
 
+<img width="500" src="public/src/composite-example.gif">
+
 ## Technologies used in the project:
 - JavaScript (Node)
     - [Discord.js](https://discord.js.org/#/)@13.9.0
