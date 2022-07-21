@@ -14,9 +14,9 @@
 
 ## Technologies used in the project:
 - JavaScript (Node)
-    - [Discord.js](https://discord.js.org/#/)
-    - [Sharp](https://sharp.pixelplumbing.com/)
-    - [Got](https://github.com/sindresorhus/got#readme)
+    - [Discord.js](https://discord.js.org/#/)@13.9.0
+    - [Sharp](https://sharp.pixelplumbing.com/)0.30.7
+    - [Got](https://github.com/sindresorhus/got#readme)@12.0.3
 
 ## Coding Style Guide:
 - Airbnb JavaScript style
