@@ -44,12 +44,7 @@ module.exports = {
         // Default width (null), selected height (args[0])
         sharpStream.resize(null, parseInt(args[0]), { fit: mode });
 
-        const { randomToken, removeProcessedImage } = require('../helpers/commonFunctions');
-        const imageDir = `${__dirname}/src/${randomToken()}.png`;
-        await sharpStream.toFile(imageDir);
-
         // Bot sending the image to the chat
-        await message.channel.send({ files: [imageDir] });
-        removeProcessedImage(imageDir);
+        await message.channel.send({ files: [await sharpStream.toBuffer()] });
     },
 };

@@ -3,11 +3,11 @@ const fs = require('fs');
 // Generates a random token by the following concept:
 const randomToken = () => Math.random().toString(36).substring(2);
 
-const removeProcessedImage = (dir1, dir2 = false) => {
+/* const removeProcessedImage = (dir1, dir2 = false) => {
     // Removes the 'processedTOKEN.png' file from the 'commands/src' folder
     fs.unlinkSync(dir1);
     if (dir2) fs.unlinkSync(dir2);
-};
+}; */
 
 const validateResolution = (dim1, dim2 = null) => {
     /*
@@ -38,5 +38,5 @@ const validateResolution = (dim1, dim2 = null) => {
 };
 
 module.exports = {
-    randomToken, removeProcessedImage, validateResolution,
+    randomToken, validateResolution,
 };

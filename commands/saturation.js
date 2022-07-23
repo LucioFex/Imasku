@@ -36,12 +36,7 @@ module.exports = {
         const levels = { low: 0.5, mid: 2, high: 4 };
         sharpStream.modulate({ saturation: levels[args[0]] });
 
-        const { randomToken, removeProcessedImage } = require('../helpers/commonFunctions');
-        const imageDir = `${__dirname}/src/${randomToken()}.png`;
-        await sharpStream.toFile(imageDir);
-
         // Bot sending the image to the chat
-        await message.channel.send({ files: [imageDir] });
-        removeProcessedImage(imageDir);
+        await message.channel.send({ files: [await sharpStream.toBuffer()] });
     },
 };
