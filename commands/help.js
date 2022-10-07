@@ -35,11 +35,11 @@ module.exports = {
             .addField(
                 '🔲  Image Compositions',
                 '> `hue | degrees`: Change the hue of the image'
-                + '\n> `lightness | level`: Change the lightness of the image'
-                + '\n> `brightness | level`: Change the brightness of the image'
-                + '\n> `saturation | level`: Change the saturation of the image'
+                + '\n> `light | level`: Change the lightness of the image'
+                + '\n> `bright | level`: Change the brightness of the image'
+                + '\n> `saturate | level`: Change the saturation of the image'
                 + '\n> `background | color`: Add color to an empty PNG image background'
-                + '\n> `composite | image`: Add image to an empty PNG background **(experimental)**',
+                + '\n> `compose | image`: Add image to an empty PNG background **(experimental)**',
             )
             .addField(
                 '🔎  Image Resizing',
