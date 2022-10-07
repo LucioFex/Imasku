@@ -8,12 +8,12 @@ module.exports = {
         const mention = message.mentions.users.first();
         message.attachments.find((file) => rawImages.push(file.url));
 
-        // If the user mentioned someone, that person's avatar will be edited
-        if (mention !== undefined) rawImages.push(mention.avatarURL(), 'avatar');
-
-        // In case the user has not sent an image or an avatar
-        if (rawImages.length === 0) {
-            return message.channel.send('You need to send an image to modify');
+        if (mention !== undefined) {
+            // If the user mentioned someone, that person's avatar will be edited
+            rawImages.push(mention.avatarURL(), 'avatar');
+        } else if (rawImages.length === 0) {
+            // In case the user has not sent an image or an avatar
+            rawImages.push(message.author.avatarURL(), 'avatar');
         }
 
         // Import of packages to process the image
