@@ -39,7 +39,7 @@ module.exports = {
                 + '\n> `bright | level`: Change the brightness of the image'
                 + '\n> `saturate | level`: Change the saturation of the image'
                 + '\n> `background | color`: Add color to an empty PNG image background'
-                + '\n> `compose | image`: Add image to an empty PNG background **(experimental)**',
+                + '\n> `compose | image`: Add image to an empty PNG background',
             )
             .addField(
                 '🔎  Image Resizing',
