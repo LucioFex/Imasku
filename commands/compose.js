@@ -21,22 +21,29 @@ module.exports = {
         const gotModule = await import('got');
         const got = gotModule.default;
 
-        // Getting first image via url (frontal)
-        const sharpStream = sharp();
-        got.stream(rawImages[0].url).pipe(sharpStream); // Img 1
-        // Gettings second image via url (background)
-        const composited = sharp();
-        got.stream(rawImages[1].url).pipe(composited); // Img 2
+        const [frontImg, backImg] = rawImages;
 
-        // Applying effect, and saving it
-        sharpStream
-            .composite([{
-                input: await composited.toBuffer(),
-                gravity: 'north',
-                blend: 'dest-over',
-            }]);
+        try {
+            // Images fetch
+            const res1 = await got(frontImg.url, { responseType: 'buffer' });
+            const buffer1 = res1.body;
 
-        // Bot sending the image to the chat
-        await message.channel.send({ files: [await sharpStream.toBuffer()] });
+            const res2 = await got(backImg.url, { responseType: 'buffer' });
+            const buffer2 = res2.body;
+
+            // Applying effect, and saving it
+            const sharpStream = sharp(buffer1)
+                .resize(backImg.width, backImg.height, { fit: 'contain', background: '#00000000' })
+                .composite([{
+                    input: buffer2,
+                    gravity: 'north',
+                    blend: 'dest-over',
+                }]);
+
+            // Bot sending the image to the chat
+            await message.channel.send({ files: [await sharpStream.toBuffer()] });
+        } catch (err) {
+            await message.channel.send('I had a problem trying to edit the image 💀');
+        }
     },
 };

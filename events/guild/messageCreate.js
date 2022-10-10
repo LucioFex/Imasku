@@ -13,7 +13,7 @@ module.exports = (client, message) => {
         try {
             command.execute(client, message, args);
         } catch (err) {
-            message.channel.send('I had a problem trying to edit the image 💀...');
+            message.channel.send('I had a problem trying to edit the image 💀');
         }
     }
 };
