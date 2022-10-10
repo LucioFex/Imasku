@@ -21,21 +21,22 @@ module.exports = {
         const gotModule = await import('got');
         const got = gotModule.default;
 
-        const [frontImg, backImg] = rawImages;
-
         try {
             // Images fetch
-            const res1 = await got(frontImg.url, { responseType: 'buffer' });
-            const buffer1 = res1.body;
+            const [frontImg, backImg] = rawImages;
 
-            const res2 = await got(backImg.url, { responseType: 'buffer' });
-            const buffer2 = res2.body;
+            frontImg.buffer = (await got(frontImg.url, { responseType: 'buffer' })).body;
+            backImg.buffer = (await got(backImg.url, { responseType: 'buffer' })).body;
 
             // Applying effect, and saving it
-            const sharpStream = sharp(buffer1)
-                .resize(backImg.width, backImg.height, { fit: 'contain', background: '#00000000' })
+            const sharpStream = sharp(frontImg.buffer)
+                .resize(
+                    backImg.width,
+                    backImg.height,
+                    { fit: 'contain', background: '#00000000' },
+                )
                 .composite([{
-                    input: buffer2,
+                    input: backImg.buffer,
                     gravity: 'north',
                     blend: 'dest-over',
                 }]);
