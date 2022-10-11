@@ -26,19 +26,31 @@ module.exports = {
         const gotModule = await import('got');
         const got = gotModule.default;
 
-        // Getting image via url
-        const imageUrl = rawImages[0];
-        const sharpStream = sharp();
-        got.stream(imageUrl).pipe(sharpStream);
+        try {
+            // Images fetch
+            const imageUrl = rawImages[0];
+            const imgBuffer = (await got(imageUrl, { responseType: 'buffer' })).body;
 
-        // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
-        if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
+            // Applying effect, and saving it
+            const levels = { low: 1, mid: 2.65, high: 3 };
 
-        // Applying effect, and saving it
-        const levels = { low: 1, mid: 2.9, high: 3 };
-        sharpStream.gamma(levels[args[0]]);
+            // First use of the gamma effect
+            const gammaIteration = await sharp(imgBuffer)
+                .gamma(levels[args[0]]).toBuffer();
 
-        // Bot sending the image to the chat
-        await message.channel.send({ files: [await sharpStream.toBuffer()] });
+            // Second and last use of the gamma effect
+            const sharpStream = sharp(gammaIteration)
+                .gamma(levels[args[0]]);
+
+            // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
+            if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
+
+            // Bot sending the image to the chat
+            await message.channel.send({ files: [await sharpStream.toBuffer()] });
+        } catch (err) {
+            return message.channel.send(
+                await message.channel.send('I had a problem trying to edit the image 💀'),
+            );
+        }
     },
 };
