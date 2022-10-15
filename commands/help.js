@@ -53,7 +53,7 @@ module.exports = {
                 + '\n> `resizing`: Shows how to manipulate image sizes',
             );
 
-        message.channel.send( // Preparation of local images to use
+        return message.channel.send( // Preparation of local images to use
             { embeds: [helpAnswer], files: ['./public/src/info.png'] },
         );
     },

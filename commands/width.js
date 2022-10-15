@@ -49,11 +49,9 @@ module.exports = {
             sharpStream.resize(parseInt(args[0]), rawImages[0].height, { fit: mode });
 
             // Bot sending the image to the chat
-            await message.channel.send({ files: [await sharpStream.toBuffer()] });
+            return message.channel.send({ files: [await sharpStream.toBuffer()] });
         } catch (err) {
-            return message.channel.send(
-                await message.channel.send('I had a problem trying to edit the image 💀'),
-            );
+            return message.channel.send('I had a problem trying to edit the image 💀');
         }
     },
 };

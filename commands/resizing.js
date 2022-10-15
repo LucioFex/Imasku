@@ -17,6 +17,6 @@ module.exports = {
                 + '\n> **inside**: The image respects aspect ratio'
                 + '\n\n*Example of `resize`: resize 400 300 cover*',
             );
-        message.channel.send({ embeds: [embedResizing] });
+        return message.channel.send({ embeds: [embedResizing] });
     },
 };

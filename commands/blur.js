@@ -40,13 +40,9 @@ module.exports = {
             if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
 
             // Bot sending the image to the chat
-            await message.channel.send({ files: [await sharpStream.toBuffer()] });
+            return message.channel.send({ files: [await sharpStream.toBuffer()] });
         } catch (err) {
-            return message.channel.send(
-                'The used color is invalid!'
-                + '\nCheck out the available ones using the following command:'
-                + ' `+colors`',
-            );
+            return message.channel.send('I had a problem trying to edit the image 💀');
         }
     },
 };

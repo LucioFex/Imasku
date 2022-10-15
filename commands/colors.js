@@ -11,6 +11,6 @@ module.exports = {
                 'There are two ways to insert colors:\n 💪 With *keywords* (blue, red, green, etc...).\n 🦾 Or with *Hex Rgb* (#8b008b, #2f4f4f, #cd853f, etc...).'
                 + '\n\nThe list of colors is in the following link:\nhttps://www.w3.org/wiki/CSS/Properties/color/keywords\n\n',
             );
-        message.channel.send({ embeds: [embedColors] });
+        return message.channel.send({ embeds: [embedColors] });
     },
 };
