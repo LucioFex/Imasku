@@ -22,23 +22,22 @@ module.exports = {
         const gotModule = await import('got');
         const got = gotModule.default;
 
-        // Getting image via url
-        const imageUrl = rawImages[0];
-        const sharpStream = sharp();
-        got.stream(imageUrl).pipe(sharpStream);
-
-        // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
-        if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
-
-        // Applying rotation effect, and saving it
         try {
+            // Images fetch
+            const imageUrl = rawImages[0];
+            const imgBuffer = (await got(imageUrl, { responseType: 'buffer' })).body;
+
+            // Applying effect, and saving it
             const degrees = parseInt(args[0]);
-            sharpStream.modulate({ hue: degrees });
-        } catch { // If the inserted degrees are not numeric
+            const sharpStream = sharp(imgBuffer).modulate({ hue: degrees });
+
+            // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
+            if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
+
+            // Bot sending the image to the chat
+            return message.channel.send({ files: [await sharpStream.toBuffer()] });
+        } catch (err) { // If the inserted degrees are not numeric
             return message.channel.send('You need to add a number of degrees to apply to the image');
         }
-
-        // Bot sending the image to the chat
-        await message.channel.send({ files: [await sharpStream.toBuffer()] });
     },
 };
