@@ -26,17 +26,19 @@ module.exports = {
         const gotModule = await import('got');
         const got = gotModule.default;
 
-        // Getting image via url
-        const imageUrl = rawImages[0];
-        const sharpStream = sharp();
-        got.stream(imageUrl).pipe(sharpStream);
-
-        // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
-        if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
-
-        // Applying tint effect, and saving it
         try {
-            sharpStream.tint(args[0]); // args[0] is the inserted color
+            // Images fetch
+            const imageUrl = rawImages[0];
+            const imgBuffer = (await got(imageUrl, { responseType: 'buffer' })).body;
+
+            // Applying tint effect, and saving it
+            const sharpStream = sharp(imgBuffer).tint(args[0]);
+
+            // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
+            if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
+
+            // Bot sending the image to the chat
+            return message.channel.send({ files: [await sharpStream.toBuffer()] });
         } catch (err) {
             return message.channel.send(
                 'The used color is invalid!'
@@ -44,8 +46,5 @@ module.exports = {
                 + ' `+colors`',
             );
         }
-
-        // Bot sending the image to the chat
-        await message.channel.send({ files: [await sharpStream.toBuffer()] });
     },
 };

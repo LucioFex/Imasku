@@ -22,22 +22,25 @@ module.exports = {
         const gotModule = await import('got');
         const got = gotModule.default;
 
-        // Getting image via url
-        const imageUrl = rawImages[0];
-        const sharpStream = sharp();
-        got.stream(imageUrl).pipe(sharpStream);
+        try {
+            // Images fetch
+            const imageUrl = rawImages[0];
+            const imgBuffer = (await got(imageUrl, { responseType: 'buffer' })).body;
 
-        // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
-        if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
+            // Applying effect, and saving it
+            const sharpStream = sharp(imgBuffer).recomb([
+                [0.3588, 0.7044, 0.1368],
+                [0.2990, 0.5870, 0.1140],
+                [0.2392, 0.4696, 0.0912],
+            ]);
 
-        // Applying sepia effect, and saving it
-        sharpStream.recomb([
-            [0.3588, 0.7044, 0.1368],
-            [0.2990, 0.5870, 0.1140],
-            [0.2392, 0.4696, 0.0912],
-        ]);
+            // If the image is an avatar, the size will double (128px * 2) x (128px * 2)
+            if (rawImages[rawImages.length - 1] === 'avatar') sharpStream.resize(256, 256);
 
-        // Bot sending the image to the chat
-        await message.channel.send({ files: [await sharpStream.toBuffer()] });
+            // Bot sending the image to the chat
+            return message.channel.send({ files: [await sharpStream.toBuffer()] });
+        } catch (err) {
+            return message.channel.send('I had a problem trying to edit the image 💀');
+        }
     },
 };
