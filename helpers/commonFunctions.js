@@ -1,4 +1,4 @@
-const validateResolution = (dim1, dim2) => { // Needs refactor with Yup
+const validateResolution = (dim1, dim2) => {
     /*
     Returns 'correct' if the given width and/or height are a
     'number' (not NaN), greater than 0 and less than or equal to 4000
@@ -21,4 +21,47 @@ const validateResolution = (dim1, dim2) => { // Needs refactor with Yup
     return 'You need to send a resolution, please try again  👀';
 };
 
-module.exports = { validateResolution };
+const processComposeOptions = (size, position) => {
+    /* Returns the sharp config as dicts for 'compose' (size and posicion) */
+    /* The configurations are for the frontal img */
+    const sizeConfig = {
+        small: 0.3,
+        mid: 0.65,
+        big: 1.35,
+    };
+    const positionConfig = {
+        n: 'top',
+        e: 'right',
+        s: 'bot',
+        w: 'left',
+        nw: 'left top',
+        ne: 'right top',
+        se: 'left bot',
+        sw: 'right bot',
+    };
+
+    return [sizeConfig[size], positionConfig[position]];
+};
+
+const composeOptions = (options) => {
+    /* Validates the msg options for the 'compose' command, and sends to process */
+    let size; let position;
+
+    // Revision for 'size'
+    if (['small', 'mid', 'big'].includes(options[0])) {
+        size = options[0];
+    } else if (['small', 'mid', 'big'].includes(options[1])) {
+        size = options[1];
+    }
+
+    // Revision for 'position'
+    if (['n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[0])) {
+        position = options[0];
+    } else if (['small', 'mid', 'big'].includes(options[1])) {
+        position = options[1];
+    }
+
+    return processComposeOptions(size, position);
+};
+
+module.exports = { validateResolution, composeOptions };

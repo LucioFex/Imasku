@@ -22,6 +22,9 @@ module.exports = {
         const got = gotModule.default;
 
         try {
+            const { composeOptions } = require('../helpers/commonFunctions');
+            // const [size, position] = composeOptions(args);
+
             // Images fetch
             const [frontImg, backImg] = rawImages;
 
@@ -44,6 +47,7 @@ module.exports = {
             // Bot sending the image to the chat
             return message.channel.send({ files: [await sharpStream.toBuffer()] });
         } catch (err) {
+            console.error(err);
             return message.channel.send('I had a problem trying to edit the image 💀');
         }
     },
