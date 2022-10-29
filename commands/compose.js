@@ -23,7 +23,8 @@ module.exports = {
 
         try {
             const { composeOptions } = require('../helpers/commonFunctions');
-            // const [size, position] = composeOptions(args);
+            const [size, position] = composeOptions(args);
+            console.log(size, position);
 
             // Images fetch
             const [frontImg, backImg] = rawImages;

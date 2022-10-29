@@ -57,10 +57,12 @@ const composeOptions = (options) => {
     // Revision for 'position'
     if (['n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[0])) {
         position = options[0];
-    } else if (['small', 'mid', 'big'].includes(options[1])) {
+    } else if (['n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[1])) {
         position = options[1];
     }
 
+    // const size = ['small', 'mid', 'big'].includes(options[0]) ? options[0] : options[1];
+    // const position = ['n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[0]) ? options[0] : options[1];
     return processComposeOptions(size, position);
 };
 
