@@ -45,24 +45,9 @@ const processComposeOptions = (size, position) => {
 
 const composeOptions = (options) => {
     /* Validates the msg options for the 'compose' command, and sends to process */
-    let size; let position;
-
-    // Revision for 'size'
-    if (['small', 'mid', 'big'].includes(options[0])) {
-        size = options[0];
-    } else if (['small', 'mid', 'big'].includes(options[1])) {
-        size = options[1];
-    }
-
-    // Revision for 'position'
-    if (['n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[0])) {
-        position = options[0];
-    } else if (['n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[1])) {
-        position = options[1];
-    }
-
-    // const size = ['small', 'mid', 'big'].includes(options[0]) ? options[0] : options[1];
-    // const position = ['n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[0]) ? options[0] : options[1];
+    const size = ['small', 'mid', 'big'].includes(options[0]) ? options[0] : options[1];
+    const position = [
+        'n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[0]) ? options[0] : options[1];
     return processComposeOptions(size, position);
 };
 

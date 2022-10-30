@@ -23,8 +23,7 @@ module.exports = {
 
         try {
             const { composeOptions } = require('../helpers/commonFunctions');
-            const [size, position] = composeOptions(args);
-            console.log(size, position);
+            const [size = 1, position] = composeOptions(args);
 
             // Images fetch
             const [frontImg, backImg] = rawImages;
@@ -35,8 +34,8 @@ module.exports = {
             // Applying effect, and saving it
             const sharpStream = sharp(frontImg.buffer)
                 .resize(
-                    backImg.width,
-                    backImg.height,
+                    parseInt(backImg.width * size),
+                    parseInt(backImg.height * size),
                     { fit: 'contain', background: '#00000000' },
                 )
                 .composite([{
