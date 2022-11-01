@@ -29,6 +29,7 @@ const processComposeOptions = (size, position) => {
         mid: 0.65,
         big: 1.35,
     };
+
     const positionConfig = {
         n: 'top',
         e: 'right',
