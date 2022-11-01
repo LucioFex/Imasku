@@ -22,34 +22,34 @@ const validateResolution = (dim1, dim2) => {
 };
 
 const processComposeOptions = (size, position) => {
-    /* Returns the sharp config as dicts for 'compose' (size and posicion) */
+    /* Returns the sharp config as dicts for 'compose' (size and gravity) */
     /* The configurations are for the frontal img */
     const sizeConfig = {
-        small: 0.3,
+        small: 0.35,
         mid: 0.65,
-        big: 1.35,
+        big: 0.8,
     };
 
-    const positionConfig = {
-        n: 'top',
-        e: 'right',
-        s: 'bot',
-        w: 'left',
-        nw: 'left top',
-        ne: 'right top',
-        se: 'left bot',
-        sw: 'right bot',
+    const gravityConfig = {
+        n: 'north',
+        e: 'east',
+        s: 'south',
+        w: 'west',
+        nw: 'northwest',
+        ne: 'northeast',
+        se: 'southeast',
+        sw: 'northwest',
     };
 
-    return [sizeConfig[size], positionConfig[position]];
+    return [sizeConfig[size], gravityConfig[position]];
 };
 
 const composeOptions = (options) => {
     /* Validates the msg options for the 'compose' command, and sends to process */
     const size = ['small', 'mid', 'big'].includes(options[0]) ? options[0] : options[1];
-    const position = [
+    const gravity = [
         'n', 'e', 's', 'w', 'nw', 'ne', 'se', 'sw'].includes(options[0]) ? options[0] : options[1];
-    return processComposeOptions(size, position);
+    return processComposeOptions(size, gravity);
 };
 
 module.exports = { validateResolution, composeOptions };

@@ -23,7 +23,7 @@ module.exports = {
 
         try {
             const { composeOptions } = require('../helpers/commonFunctions');
-            const [size = 1, position = 'centre'] = composeOptions(args);
+            const [size = 1, gravity = 'center'] = composeOptions(args);
 
             // Images fetch
             const [frontImg, backImg] = rawImages;
@@ -33,8 +33,8 @@ module.exports = {
 
             frontImg.sharp = await sharp(frontImg.buffer)
                 .resize(
-                    parseInt(backImg.width),
-                    parseInt(backImg.height),
+                    parseInt(backImg.width * size),
+                    parseInt(backImg.height * size),
                     { fit: 'contain', background: '#00000000' },
                 ).toBuffer();
 
@@ -42,8 +42,8 @@ module.exports = {
             const sharpStream = sharp(backImg.buffer)
                 .composite([{
                     input: frontImg.sharp,
-                    gravity: 'north',
                     blend: 'over',
+                    gravity,
                 }]);
 
             // Bot sending the image to the chat
