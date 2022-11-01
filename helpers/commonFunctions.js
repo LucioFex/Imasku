@@ -38,7 +38,7 @@ const processComposeOptions = (size, position) => {
         nw: 'northwest',
         ne: 'northeast',
         se: 'southeast',
-        sw: 'northwest',
+        sw: 'southwest',
     };
 
     return [sizeConfig[size], gravityConfig[position]];
