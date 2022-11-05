@@ -11,9 +11,15 @@ module.exports = (client, message) => {
     const command = client.commands.get(cmd);
     if (command) {
         try {
+            // Lower case conversion for args (like size, color, etc...)
+            for (let index = 0; index < args.length; index += 1) {
+                args[index] = args[index].toLowerCase();
+            }
+
+            // Command assignation
             command.execute(client, message, args);
         } catch (err) {
-            message.channel.send('I had a problem trying to edit the image 💀');
+            message.channel.send('I\'m sorry, I had a problem trying to execute the command 💀');
         }
     }
 };
