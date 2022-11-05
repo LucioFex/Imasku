@@ -50,6 +50,7 @@ module.exports = {
             .addField(
                 '🔨  Tools',
                 '> `colors`: Shows all available colors to apply to images'
+                + '\n> `composite`: Shows how to compose two images'
                 + '\n> `resizing`: Shows how to manipulate image sizes',
             );
 
