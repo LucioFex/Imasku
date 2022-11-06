@@ -17,11 +17,11 @@ The Bot will return the result.
 ```
 
 ## List of available effects
-<img src="public/src/commandList.jpg" alt="effectsList" width="423" align="left"/>
+<img src="public/src/commandList.jpg" alt="effectsList" width="415" align="left"/>
 
 ### Use examples
-<img src="public/src/hue-example.jpg" alt="Hue effect example" width="515"/>
-<img src="public/src/resize-example.jpg" alt="Resize effect example" width="515"/>
+<img src="public/src/hue-example.jpg" alt="Hue effect example" width="510"/>
+<img src="public/src/resize-example.jpg" alt="Resize effect example" width="510"/>
 
 ## Technologies used in the project:
 - JavaScript (Node)
