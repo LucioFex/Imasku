@@ -15,8 +15,8 @@ The Bot will return the result.
 <img src="public/src/commandList.jpg" alt="effectsList" width="355" align="left"/>
 
 ### Use examples
-<img src="public/src/hue-example.jpg" alt="Hue effect example" width="415"/>
-<img src="public/src/resize-example.jpg" alt="Resize effect example" width="415"/>
+<img src="public/src/hue-example.jpg" alt="Hue effect example" width="417"/>
+<img src="public/src/resize-example.jpg" alt="Resize effect example" width="417"/>
 
 ## Technologies used in the project:
 - JavaScript (Node)
