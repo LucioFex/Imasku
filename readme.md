@@ -4,7 +4,7 @@
  <p align="center"><img src="public/src/imasku-logo.png" alt="Imasku logo" width="250"/></p>
 </h1>
 
-<img src="public/src/presentation.jpg" alt="Presentation image" width="650" align="left"/>
+<img src="public/src/presentation.jpg" alt="Presentation image" width="600" align="left"/>
 
 ## A Bot for What?
 #### Imasku is a minimalist Discord Bot that wants to save you time when opening a manual photo editor.
@@ -17,11 +17,11 @@ The Bot will return the result.
 ```
 
 ## List of available effects
-<img src="public/src/commandList.jpg" alt="effectsList" width="415" align="left"/>
+<img src="public/src/commandList.jpg" alt="effectsList" width="400" align="left"/>
 
 ### Use examples
-<img src="public/src/hue-example.jpg" alt="Hue effect example" width="480"/>
-<img src="public/src/resize-example.jpg" alt="Resize effect example" width="480"/>
+<img src="public/src/hue-example.jpg" alt="Hue effect example" width="475"/>
+<img src="public/src/resize-example.jpg" alt="Resize effect example" width="475"/>
 
 ## Technologies used in the project:
 - JavaScript (Node)
