@@ -1,18 +1,27 @@
 <h1 align="center">
- Imasku
+ <p>Imasku</p>
+ <p>🎩 A Pocket Photo Editor Bot 💀</p>
+ <p align="center"><img src="public/src/imasku-logo.png" alt="Imasku logo" width="250"/></p>
 </h1>
 
-<h1 align="center">🎩 Add filters to your images in just seconds 💀</h1>
+<img src="public/src/presentation.jpg" alt="Presentation image" width="650" align="left"/>
 
-<p align="center"><img src="public/src/imasku-logo.png" alt="RanBot-Carter sample img" width="400"/></p>
+## A Bot for What?
+#### Imasku is a minimalist Discord Bot that wants to save you time when opening a manual photo editor.
+Paste an image on a Discord server, select one of *21 available effects*, then send the message.
+The Bot will return the result.
 
-<h4>
-  Imasku is a Discord Bot with the ability to process your images.
-  You can paste an image on a Discord server, select one or more filters, and then send the message.
-  The Bot will return the processed image.
-</h4>
+`Command example:`
+```
++rotate 45
+```
 
-<img width="500" src="public/src/composite-example.gif">
+## List of available effects
+<img src="public/src/commandList.jpg" alt="effectsList" width="423" align="left"/>
+
+### Use examples
+<img src="public/src/hue-example.jpg" alt="Hue effect example" width="515"/>
+<img src="public/src/resize-example.jpg" alt="Resize effect example" width="515"/>
 
 ## Technologies used in the project:
 - JavaScript (Node)
