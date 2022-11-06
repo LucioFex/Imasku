@@ -4,17 +4,12 @@
  <p align="center"><img src="public/src/imasku-logo.png" alt="Imasku logo" width="250"/></p>
 </h1>
 
-<img src="public/src/presentation.jpg" alt="Presentation image" width="450" align="left"/>
+<img src="public/src/presentation.jpg" alt="Presentation image" width="625" align="left"/>
 
-## A Bot for What?
+### A Bot for What?
 #### Imasku is a minimalist Discord Bot that wants to save you time when opening a manual photo editor.
 Paste an image on a Discord server, select one of *21 available effects*, then send the message.
 The Bot will return the result.
-
-`Command example:`
-```
-+rotate 45
-```
 
 ## List of available effects
 <img src="public/src/commandList.jpg" alt="effectsList" width="355" align="left"/>
